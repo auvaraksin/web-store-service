@@ -11,6 +11,7 @@ import java.util.ArrayList;
 @RestController
 public class WebStoreController {
     private final OrderServiceInterface orderServiceInterface;
+    private Cart cart;
 
     public WebStoreController(OrderServiceInterface orderServiceInterface) {
         this.orderServiceInterface = orderServiceInterface;
