@@ -1,6 +1,7 @@
 package pro.sky.webstoreservice.components;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 import java.util.Objects;

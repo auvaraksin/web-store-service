@@ -13,7 +13,13 @@ public class OrderServiceInterfaceImpl implements OrderServiceInterface {
 
     @Override
     public Cart addItemsToCart(ArrayList<Integer> items) {
-        cart.setItems(items);
+        if (cart.getItems() == null) {
+            cart.setItems(items);
+        } else {
+            ArrayList<Integer> additionalItems = cart.getItems();
+            additionalItems.addAll(items);
+            cart.setItems(additionalItems);
+        }
         return cart;
     }
 
