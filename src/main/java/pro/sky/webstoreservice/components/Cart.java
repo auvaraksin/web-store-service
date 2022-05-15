@@ -4,22 +4,26 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 @Component
+@SessionScope
 public class Cart {
-    private ArrayList<Integer> items;
+    private final List<Integer> items;
 
     public Cart() {
-        this.items = items;
+        this.items = new ArrayList<>();
     }
 
-    public ArrayList<Integer> getItems() {
-        return items;
+    public List<Integer> addItems(List<Integer> itemsList) {
+        items.addAll(itemsList);
+        return itemsList;
     }
 
-    public void setItems(ArrayList<Integer> items) {
-        this.items = items;
+    public List<Integer> getItems() {
+        return Collections.unmodifiableList(items);
     }
 
     @Override
