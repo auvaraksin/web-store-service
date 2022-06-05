@@ -1,27 +1,25 @@
 package pro.sky.webstoreservice.services;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.annotation.SessionScope;
 import pro.sky.webstoreservice.components.Cart;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
-@SessionScope
 public class OrderServiceInterfaceImpl implements OrderServiceInterface {
-    Cart cart = new Cart();
+   private final Cart cart;
+
+   public OrderServiceInterfaceImpl(Cart cart) {
+       this.cart = cart;
+   }
 
     @Override
-    public Cart addItemsToCart(ArrayList<Integer> items) {
-        cart.setItems(items);
-        return cart;
+    public List<Integer> addItemsToTheCart(List<Integer> itemsList) {
+        return cart.addItems(itemsList);
     }
 
     @Override
-    public ArrayList<Integer> getItemsListInTheCart() {
-        if (cart.getItems().equals(null)) {
-            throw new RuntimeException("The items list is empty");
-        }
+    public List<Integer> getItemsListInTheCart() {
         return cart.getItems();
     }
 

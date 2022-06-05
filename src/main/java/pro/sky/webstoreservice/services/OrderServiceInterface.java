@@ -1,10 +1,8 @@
 package pro.sky.webstoreservice.services;
 
-import pro.sky.webstoreservice.components.Cart;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public interface OrderServiceInterface {
-    Cart addItemsToCart(ArrayList<Integer> items);
-    ArrayList<Integer> getItemsListInTheCart();
+    List<Integer> addItemsToTheCart(List<Integer> itemsList);
+    List<Integer> getItemsListInTheCart();
 }
